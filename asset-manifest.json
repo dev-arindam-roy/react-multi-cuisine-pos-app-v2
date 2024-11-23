@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-multi-cuisine-pos-app-v2/static/css/main.b509ca48.css",
+    "main.js": "/react-multi-cuisine-pos-app-v2/static/js/main.475b0b65.js",
+    "static/js/453.13778412.chunk.js": "/react-multi-cuisine-pos-app-v2/static/js/453.13778412.chunk.js",
+    "static/media/1.png": "/react-multi-cuisine-pos-app-v2/static/media/1.860e0ddadd5e25318e8e.png",
+    "static/media/4.png": "/react-multi-cuisine-pos-app-v2/static/media/4.794c70a56efb4b19e949.png",
+    "static/media/3.png": "/react-multi-cuisine-pos-app-v2/static/media/3.516b39c205d953127b0d.png",
+    "static/media/popcorn.png": "/react-multi-cuisine-pos-app-v2/static/media/popcorn.527e5e3e0c2394706942.png",
+    "static/media/2.png": "/react-multi-cuisine-pos-app-v2/static/media/2.220a1cb98a26b6757dd4.png",
+    "static/media/burger-2.png": "/react-multi-cuisine-pos-app-v2/static/media/burger-2.88ffc482eb45e5e13b9f.png",
+    "index.html": "/react-multi-cuisine-pos-app-v2/index.html",
+    "main.b509ca48.css.map": "/react-multi-cuisine-pos-app-v2/static/css/main.b509ca48.css.map",
+    "main.475b0b65.js.map": "/react-multi-cuisine-pos-app-v2/static/js/main.475b0b65.js.map",
+    "453.13778412.chunk.js.map": "/react-multi-cuisine-pos-app-v2/static/js/453.13778412.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b509ca48.css",
+    "static/js/main.475b0b65.js"
+  ]
+}
