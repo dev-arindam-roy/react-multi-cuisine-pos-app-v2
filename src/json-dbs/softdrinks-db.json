@@ -1,0 +1,28 @@
+[
+    { "id": 1, "name": "Coca-Cola", "price": 1.99, "image": "softdrink-1.png" },
+    { "id": 2, "name": "Pepsi", "price": 1.99, "image": "softdrink-2.png" },
+    { "id": 3, "name": "Sprite", "price": 1.89, "image": "softdrink-1.png" },
+    { "id": 4, "name": "Fanta Orange", "price": 1.89, "image": "softdrink-2.png" },
+    { "id": 5, "name": "Mountain Dew", "price": 2.09, "image": "softdrink-1.png" },
+    { "id": 6, "name": "Dr Pepper", "price": 2.09, "image": "softdrink-2.png" },
+    { "id": 7, "name": "7-Up", "price": 1.89, "image": "softdrink-1.png" },
+    { "id": 8, "name": "Root Beer", "price": 2.19, "image": "softdrink-2.png" },
+    { "id": 9, "name": "Ginger Ale", "price": 2.19, "image": "softdrink-1.png" },
+    { "id": 10, "name": "Diet Coke", "price": 1.99, "image": "softdrink-2.png" },
+    { "id": 11, "name": "Diet Pepsi", "price": 1.99, "image": "softdrink-1.png" },
+    { "id": 12, "name": "Cherry Coke", "price": 2.29, "image": "softdrink-2.png" },
+    { "id": 13, "name": "Vanilla Coke", "price": 2.29, "image": "softdrink-1.png" },
+    { "id": 14, "name": "Coca-Cola Zero Sugar", "price": 1.99, "image": "softdrink-1.png" },
+    { "id": 15, "name": "Pepsi Max", "price": 1.99, "image": "softdrink-2.png" },
+    { "id": 16, "name": "Tonic Water", "price": 1.79, "image": "softdrink-1.png" },
+    { "id": 17, "name": "Club Soda", "price": 1.79, "image": "softdrink-2.png" },
+    { "id": 18, "name": "Sunkist Orange", "price": 2.19, "image": "softdrink-1.png" },
+    { "id": 19, "name": "Crush Grape", "price": 2.19, "image": "softdrink-2.png" },
+    { "id": 20, "name": "Cactus Cooler", "price": 2.49, "image": "softdrink-1.png" },
+    { "id": 21, "name": "Fresca", "price": 2.09, "image": "softdrink-2.png" },
+    { "id": 22, "name": "Big Red", "price": 2.29, "image": "softdrink-1.png" },
+    { "id": 23, "name": "RC Cola", "price": 1.99, "image": "softdrink-2.png" },
+    { "id": 24, "name": "Jarritos Lime", "price": 2.49, "image": "softdrink-2.png" },
+    { "id": 25, "name": "San Pellegrino Limonata", "price": 2.99, "image": "softdrink-1.png" }
+]
+  
