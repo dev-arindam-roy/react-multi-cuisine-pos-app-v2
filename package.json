@@ -1,7 +1,7 @@
 {
   "name": "quick-billing-v1",
   "version": "0.1.0",
-  "homepage": "https://gitname.github.io/react-multi-cuisine-pos-app",
+  "homepage": "https://gitname.github.io/react-multi-cuisine-pos-app-v2",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
