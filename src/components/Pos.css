@@ -157,3 +157,10 @@ body {
   font-style: italic;
   color: #8c8c8c;
 }
+.grid-tab-action-btn {
+  font-size: 24px;
+  text-align: right;
+}
+.icon-btn:hover {
+  cursor: pointer;
+}

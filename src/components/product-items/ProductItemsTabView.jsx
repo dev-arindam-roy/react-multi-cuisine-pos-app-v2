@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiGrid, FiTable } from "react-icons/fi";
 
 const ProductItemsTabView = ({ sendProductList, onAddPosItem }) => {
   const [products, setProducts] = useState([]);
@@ -59,7 +59,7 @@ const ProductItemsTabView = ({ sendProductList, onAddPosItem }) => {
       <Card>
         <Card.Header>
           <Row>
-            <Col md={6} className="product-list-heading">
+            <Col md={5} className="product-list-heading">
               POS Items - ({copyProducts.length})
               {selectedCategory && (
                 <span className="mx-2">{` - ${selectedCategory} (${products.length})`}</span>
@@ -91,6 +91,10 @@ const ProductItemsTabView = ({ sendProductList, onAddPosItem }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
+            </Col>
+            <Col md={1} className="grid-tab-action-btn">
+              <FiGrid className="icon-btn" style={{marginRight: '2px'}} />
+              <FiTable className="icon-btn" />
             </Col>
           </Row>
         </Card.Header>

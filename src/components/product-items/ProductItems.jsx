@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import ProductGrid from "./ProductGrid";
+import ProductTab from "./ProductTab";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { FiGrid, FiTable } from "react-icons/fi";
 
 const ProductItems = ({ sendProductList, onAddPosItem }) => {
   const [products, setProducts] = useState([]);
@@ -9,6 +12,11 @@ const ProductItems = ({ sendProductList, onAddPosItem }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [productView, setProductView] = useState("GRID");
+
+  const emitReceivedOnAddPosItem = (selectedProductId) => {
+    onAddPosItem(selectedProductId);
+  };
 
   const filteredProducts = products.filter((item) => {
     return (
@@ -57,13 +65,11 @@ const ProductItems = ({ sendProductList, onAddPosItem }) => {
       <Card>
         <Card.Header>
           <Row>
-            <Col md={6} className="product-list-heading">
+            <Col md={5} className="product-list-heading">
               POS Items - ({copyProducts.length})
-              {
-                (selectedCategory) && (
-                  <span className="mx-2">{` - ${selectedCategory} (${products.length})`}</span>
-                )
-              }
+              {selectedCategory && (
+                <span className="mx-2">{` - ${selectedCategory} (${products.length})`}</span>
+              )}
             </Col>
             <Col md={3}>
               <select
@@ -92,53 +98,32 @@ const ProductItems = ({ sendProductList, onAddPosItem }) => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </Col>
+            <Col md={1} className="grid-tab-action-btn">
+              <FiGrid
+                className="icon-btn"
+                style={{ marginRight: "2px" }}
+                onClick={() => setProductView("GRID")}
+              />
+              <FiTable
+                className="icon-btn"
+                onClick={() => setProductView("TAB")}
+              />
+            </Col>
           </Row>
         </Card.Header>
         <Card.Body>
-          <Row>
-            {products.length > 0 ? (
-              products.map((item, index) => {
-                return (
-                  <Col
-                    key={`pos-item-${item?.id}-${index}`}
-                    xs={12}
-                    sm={6}
-                    md={3}
-                    className="mb-3 text-center"
-                  >
-                    <div
-                      className="item-box"
-                      onClick={() => onAddPosItem(item?.id)}
-                    >
-                      <div className="item-image">
-                        <img
-                          src={require(`../../item-images/${item?.image}`)}
-                          alt={item?.name}
-                        />
-                      </div>
-                      <div className="item-name">
-                        {item?.category && (
-                          <span className="item-category">
-                            {item?.category}
-                            <br />
-                          </span>
-                        )}
-                        {item?.name}
-                      </div>
-                      <div className="item-price">
-                        {process.env.REACT_APP_AUTH_CURRENCY || "Rs."}
-                        {parseFloat(item?.price).toFixed(2)}
-                      </div>
-                    </div>
-                  </Col>
-                );
-              })
-            ) : (
-              <Col>
-                <p>Sorry! No Products Available</p>
-              </Col>
-            )}
-          </Row>
+          {productView === "GRID" && (
+            <ProductGrid
+              sendProductItems={products}
+              receivedOnAddPosItem={emitReceivedOnAddPosItem}
+            />
+          )}
+          {productView === "TAB" && (
+            <ProductTab
+              sendProductItems={products}
+              receivedOnAddPosItem={emitReceivedOnAddPosItem}
+            />
+          )}
         </Card.Body>
         <Card.Footer></Card.Footer>
       </Card>

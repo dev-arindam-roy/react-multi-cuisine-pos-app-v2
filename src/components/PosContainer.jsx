@@ -3,7 +3,7 @@ import AppHeading from "./heading/AppHeading";
 import AuthInfo from "./auth/AuthInfo";
 import AuthSettings from "./auth/AuthSettings";
 import AuthLogin from "./auth/AuthLogin";
-import ProductItemsTabView from "./product-items/ProductItemsTabView";
+import ProductItems from "./product-items/ProductItems";
 import Bill from "./bill/Bill";
 import GeneratePosBill from "./bill/GeneratePosBill";
 import moment from "moment";
@@ -283,30 +283,33 @@ const PosContainer = () => {
   };
 
   const emitOnCancelBillHandler = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: `You want to cancel the current bill ?`,
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#0d6efd",
-      cancelButtonColor: "#dc3545",
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const _deepCopyBillObj = JSON.parse(JSON.stringify(billObj));
-        setPosBill(_deepCopyBillObj);
-        billSaveToLocalStorage(_deepCopyBillObj);
-        Swal.fire({
-          icon: "success",
-          title: "Done!",
-          text: "Bill has been cancelled successfully!",
-          showConfirmButton: true,
-        });
-      }
-    });
+    const _tempPos = { ...posBill };
+    if (_tempPos?.items.length > 0) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: `You want to cancel the current bill ?`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0d6efd",
+        cancelButtonColor: "#dc3545",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const _deepCopyBillObj = JSON.parse(JSON.stringify(billObj));
+          setPosBill(_deepCopyBillObj);
+          billSaveToLocalStorage(_deepCopyBillObj);
+          Swal.fire({
+            icon: "success",
+            title: "Done!",
+            text: "Bill has been cancelled successfully!",
+            showConfirmButton: true,
+          });
+        }
+      });
+    }
   };
 
   const emitOnUpdateBillItemQuantitesHandler = (
@@ -342,7 +345,10 @@ const PosContainer = () => {
         });
         _tempPosBill.items = _tempPosBillItems;
         _tempPosBill.discount = parseFloat(discount).toFixed(2);
-        if (parseFloat(calculateTotalBill(_tempPosBill.items)) >= _tempPosBill.discount) {
+        if (
+          parseFloat(calculateTotalBill(_tempPosBill.items)) >=
+          _tempPosBill.discount
+        ) {
           _tempPosBill.amount = calculateTotalBill(
             _tempPosBill.items,
             discount
@@ -516,7 +522,7 @@ const PosContainer = () => {
         </Row>
         <Row className="mt-5">
           <Col xs={12} sm={12} md={7}>
-            <ProductItemsTabView
+            <ProductItems
               sendProductList={productList}
               onAddPosItem={emitOnAddPosItemHandler}
             />
